@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .person-list {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .person-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .person-item h2 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .person-item p {
+            margin: 5px 0;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="person-list">
+      <!-- js출력 -->
+    </div>
+    <script>
+      //더미데이터(객체를 사용한 변수)
+      let people = [
+        { name: "John", age: 30, isStudent: false },
+        { name: "Jane", age: 25, isStudent: true },
+        { name: "Mike", age: 35, isStudent: false },
+        { name: "A", age: 28, isStudent: true },
+        { name: "B", age: 28, isStudent: false },
+        { name: "C", age: 32, isStudent: false },
+        { name: "D", age: 23, isStudent: true },
+        { name: "E", age: 21, isStudent: false },
+      ];
+      //html요소에 데이터를 추가하는 함수
+      function displayPeople() {
+        // alert(확인)
+        const personList = document.querySelector(".person-list");
+        people.forEach((person) => {
+          const newP = document.createElement("p");
+          newP.classList = "person-item";
+          // console.log(newP);
+          newP.innerHTML = `
+       <h2>Name : ${person.name}</h2>
+       <p>Age : ${person.age}</p>
+       <p>Student : ${person.isStudent ? "Yes":"No" }</p>
+            `;
+            personList.appendChild(newP)
+        });
+
+      }
+      displayPeople();
+    </script>
+  </body>
+</html>
